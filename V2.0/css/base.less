@@ -1,0 +1,156 @@
+.head{
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    left: 0;
+    height: 70px;
+    width: 100%;
+    // background: rgba(0, 0, 0, 0.5);
+}
+.banner{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    background: #ddd;
+    ul{
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        li{
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center -330px;
+        }
+    }
+    .banner-desc{
+        width: 100%;
+        height: 100%;
+        line-height: 300px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        text-align: center;
+        font-size: 60px;
+        color: #999;
+    }
+    .colorbar{
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        background: -webkit-linear-gradient(left, red, orange, yellow, green,#00e4ff,#1368ff); /* Safari 5.1 - 6.0 */
+        background: -o-linear-gradient(left, red, orange, yellow, green,#00e4ff,#1368ff); /* Opera 11.1 - 12.0 */
+        background: -moz-linear-gradient(left, red, orange, yellow, green,#00e4ff,#1368ff); /* Firefox 3.6 - 15 */
+        background: linear-gradient(to right, red, orange, yellow, green,#00e4ff,#1368ff); /* 标准的语法（必须放在最后） */
+    }
+}
+.main{
+    width: 100%;
+    height: auto;
+    background: #efefef;
+    padding: 20px 0 50px 0;
+    .content{
+        width: 900px;
+        height: auto;
+        margin: 0 auto;
+        background: #fff;
+        box-sizing: border-box;
+        padding: 20px 40px;
+        .list{
+            .title{
+                font-size: 26px;
+                color: #333;
+            }
+            .desc{
+                line-height: 40px;
+                border-bottom: 1px dashed #ddd;
+                .author{
+                    padding-right: 10px;
+                    color: #666;
+                    font-size: 14px;
+                    &:hover{
+                        color: #ff480e;
+                        cursor: pointer;
+                    }
+                }
+                .date{
+                    font-size: 14px;
+                    color: #999;
+                }
+            }
+            .pic{
+                margin-top: 10px;
+                width: 100%;
+                height: 300px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center center;
+                border-bottom: 1px dashed #ddd;
+            }
+            .show-all{
+                width: 140px;
+                height: 40px;
+                border-radius: 20px;
+                line-height: 40px;
+                text-align: center;
+                background: #ff5e13;
+                color: #fff;
+                font-size: 16px;
+                margin: 0 auto;
+                margin-top: 20px;
+                cursor: pointer;
+                &:hover{
+                    background: #ff702e;
+                }
+                &:active{
+                    background: #ff5100;
+                }
+            }
+            .content-desc{
+                display: none;
+                h4{
+                    padding-top: 20px;
+                    font-size: 24px;
+                    color: #333;
+                    line-height: 50px;
+                    color: #ff480e;
+                }
+                p{
+                    font-size: 16px;
+                    color: #666;
+                    line-height: 36px;
+                    span{
+                        background: #ff480e;
+                        padding: 5px 10px;
+                        border-radius: 3px;
+                        margin-right: 8px;
+                        color: #fff;
+                        font-weight: bold;
+                    }
+                }
+                img{
+                    padding: 10px;
+                    width: 800px;
+                    height: auto;
+                    box-sizing: border-box;
+                    margin: 10px;
+                    background: #ddd;
+                }
+            }
+        }
+    }
+}
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #fff;
+    color: #999;
+    box-shadow: 0px 8px 10px 8px #9a9a9a;
+}

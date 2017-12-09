@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>米客</title>
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+    <link href="/favicon.ico" rel="shortcut icon">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/base.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/handlebars-v4.0.11.js"></script>
+</head>
+<body>
+    <div class="head"></div>
+    <div class="banner">
+        <ul>
+            <!-- <li style="background-image: url('images/banner.png')"></li> -->
+        </ul>
+        <div class="banner-desc">平常心...</div>
+        <div class="colorbar"></div>
+    </div>
+    <div class="main">
+        <div class="content" id="content">
+            <div>err</div>
+            <!-- <div class="list">
+                <h3 class="title">Git SSH配置</h3>
+                <div class="desc">
+                    <span class="author">likai</span>
+                    <span class="date">2017-12-09</span>
+                </div>
+                <div class="pic" style="background-image: url('images/git.png')"></div>
+                <div class="content-desc" id="content-desc">
+                    <h4>本文说明：</h4>
+                    <p>命令全部为截图标注，顺序阅读</p>
+                    <h4>准备工作：</h4>
+                    <p>安装git</p>
+                    <p>注册GitHub账号</p>
+                    <h4>配置你的名称和邮箱</h4>
+                    <img src="images/git/01.png" alt="">
+                    <h4>GitHub协议分为：https 和 SSH</h4>
+                    <p>https：使用https协议需要每次提交时输入用户名和密码（如果个人不介意可以使用）</p>
+                    <p>SSH：使用SSH协议提交时可以不用输入用户名和密，但是需要配置</p>
+                    <h4>以下为SSH配置方法：</h4>
+                    <p><span class="step">1.</span>查看自己电脑是否有.ssh目录</p>
+                    <p>.ssh目录下面有id_rsa和id_rsa.pub两个文件。</p>
+                    <p><span class="step">2.</span>如果存在打开id_rsa.pub文件，复制里面的一串公匙</p>
+                    <img src="images/git/02.png" alt="">
+                    <p><span class="step">3.</span>如果不存在需要生成SSH key</p>
+                    <img src="images/git/03.png" alt="">
+                    <p><span class="step">4.</span>打开.ssh下的id_rsa.pub文件，复制这一串公匙</p>
+                    <img src="images/git/04.png" alt="">
+                    <p><span class="step">5.</span>接着去GitHub设置SSH</p>
+                    <img src="images/git/05.png" alt="">
+                    <p><span class="step">6.</span>在SSH and GPG keys 下新建一个SSH key</p>
+                    <img src="images/git/06.png" alt="">
+                    <p><span class="step">7.</span>复制刚才生成的公匙到里面，然后添加</p>
+                    <img src="images/git/07.png" alt="">
+                    <p><span class="step">8.</span>恭喜你到这一步已经添加成功了，现在就可以使用SSH协议了。</p>
+                    <img src="images/git/08.png" alt="">
+                </div>
+                <div class="show-all" id="show-all">阅读全文</div>
+            </div> -->
+        </div>
+    </div>
+    <div class="footer">
+        &copy;2017 MCOCO - 京ICP备17017458号
+    </div>
+
+    <!-- 模板 -->
+    <script id="content-template" type="text/x-handlebars-template">
+        {{#each this}}
+        <div class="list">
+            <h3 class="title">{{this.title}}</h3>
+            <div class="desc">
+                <span class="author">{{this.author}}</span>
+                <span class="date">{{this.date}}</span>
+            </div>
+            <div class="pic" style="background-image: url({{this.picUrl}})"></div>
+            <div class="content-desc">
+                {{#each contentDesc}}
+                    {{#compare type '==' 1}}
+                    <h4>{{text}}</h4>
+                    {{/compare}}
+                    {{#compare type '==' 2}}
+                    <p>{{text}}</p>
+                    {{/compare}}
+                    {{#compare type '==' 3}}
+                    <p><span class="step">{{step}}</span>{{text}}</p>
+                    {{/compare}}
+                    {{#compare type '==' 4}}
+                    <img src='{{src}}' alt="">
+                    {{/compare}}
+                {{/each}}
+            </div>
+            <div class="show-all">阅读全文</div>
+        </div>
+        {{/each}}
+    </script>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

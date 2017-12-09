@@ -1,0 +1,157 @@
+{
+    "code": 200,
+    "msg": "error",
+    "result": [
+      {
+        "title": "Git SSH配置",
+        "author": "likai",
+        "date": "2017-12-09",
+        "picUrl": "images/git.png",
+        "contentDesc": [
+          {
+            "id": 1,
+            "text": "本文说明：",
+            "type": 1
+          },
+          {
+            "id": 2,
+            "text": "命令全部为截图标注，顺序阅读",
+            "type": 2
+          },
+          {
+            "id": 3,
+            "text": "准备工作：",
+            "type": 1
+          },
+          {
+            "id": 4,
+            "text": "安装git",
+            "type": 2
+          },
+          {
+            "id": 5,
+            "text": "注册GitHub账号",
+            "type": 2
+          },
+          {
+            "id": 6,
+            "text": "配置你的名称和邮箱",
+            "type": 1
+          },
+          {
+            "id": 7,
+            "src": "images/git/01.png",
+            "type": 4
+          },
+          {
+            "id": 8,
+            "text": "GitHub协议分为：https 和 SSH",
+            "type": 1
+          },
+          {
+            "id": 9,
+            "text": "https：使用https协议需要每次提交时输入用户名和密码（如果个人不介意可以使用）",
+            "type": 2
+          },
+          {
+            "id": 10,
+            "text": "SSH：使用SSH协议提交时可以不用输入用户名和密，但是需要配置",
+            "type": 2
+          },
+          {
+            "id": 11,
+            "text": "以下为SSH配置方法：",
+            "type": 1
+          },
+          {
+            "id": 12,
+            "step": "1.",
+            "text": "查看自己电脑是否有.ssh目录",
+            "type": 3
+          },
+          {
+            "id": 13,
+            "text": ".ssh目录下面有id_rsa和id_rsa.pub两个文件。",
+            "type": 2
+          },
+          {
+            "id": 14,
+            "step": "2.",
+            "text": "如果存在打开id_rsa.pub文件，复制里面的一串公匙",
+            "type": 3
+          },
+          {
+            "id": 15,
+            "src": "images/git/02.png",
+            "type": 4
+          },
+          {
+            "id": 16,
+            "step": "3.",
+            "text": "如果不存在需要生成SSH key",
+            "type": 3
+          },
+          {
+            "id": 17,
+            "src": "images/git/03.png",
+            "type": 4
+          },
+          {
+            "id": 18,
+            "step": "4.",
+            "text": "打开.ssh下的id_rsa.pub文件，复制这一串公匙",
+            "type": 3
+          },
+          {
+            "id": 19,
+            "src": "images/git/04.png",
+            "type": 4
+          },
+          {
+            "id": 20,
+            "step": "5.",
+            "text": "接着去GitHub设置SSH",
+            "type": 3
+          },
+          {
+            "id": 21,
+            "src": "images/git/05.png",
+            "type": 4
+          },
+          {
+            "id": 22,
+            "step": "6.",
+            "text": "在SSH and GPG keys 下新建一个SSH key",
+            "type": 3
+          },
+          {
+            "id": 23,
+            "src": "images/git/06.png",
+            "type": 4
+          },
+          {
+            "id": 24,
+            "step": "7.",
+            "text": "复制刚才生成的公匙到里面，然后添加",
+            "type": 3
+          },
+          {
+            "id": 25,
+            "src": "images/git/07.png",
+            "type": 4
+          },
+          {
+            "id": 26,
+            "step": "7.",
+            "text": "恭喜你到这一步已经添加成功了，现在就可以使用SSH协议了。",
+            "type": 3
+          },
+          {
+            "id": 27,
+            "src": "images/git/08.png",
+            "type": 4
+          }
+        ]
+      }
+    ]
+  }

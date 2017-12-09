@@ -1,0 +1,211 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+img{
+    border:0;
+}
+ol, ul ,li{list-style: none;}
+body{
+    background-color: #E5E5E5;
+    font-family: "微软雅黑";
+    position:relative;
+}
+.photoWall .p_banner{
+    width: 100%;
+    height: 200px;
+    background-color: skyblue;
+    position:relative;
+}
+.photoWall .p_banner img{
+    width: 100%;
+    height: 200px;
+    position:absolute;
+    top: 0;
+    left:50%;
+    transform: translate(-50%, 0);
+}
+.photoWall .p_banner .p_mark{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+.photoWall .p_banner .p_title{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.photoWall .p_banner .p_title p{
+    text-align:center;
+    color:#fff;
+    font-size: 30px;
+    line-height:60px;
+}
+.photoWall .p_banner .p_title p.last{
+    border-top: 1px solid #fff;
+    font-size:18px;
+    line-height: 40px;
+}
+.photoWall .h_inner{
+    width: 1000px;
+    margin: 0 auto;
+    position: relative;
+}
+.photoWall .h_inner .line{
+    position:absolute;
+    top: -10px;
+    left: -20px;
+    height: 100%;
+    width: 1px;
+    background-color: #1A7DF4;
+}
+.photoWall .h_inner .p_item{
+    background-color: #fff;
+    box-shadow: 1px 2px 6px #969393;
+    border-radius:0 0 3px 3px;
+    padding:10px;
+    padding-bottom: 30px;
+    box-sizing: border-box;
+    margin: 15px 0;
+    min-height:240px;
+    position: relative;
+}
+.photoWall .h_inner .p_item .loading{
+    width: 160px;
+    position:absolute;
+    left: 50%;
+    top: 70%;
+    transform: translate(-50%, -50%);
+}
+.photoWall .h_inner .p_item .top{
+    border-bottom: 1px dashed #2F87F1;
+    height: 60px;
+    position: relative;
+}
+.photoWall .h_inner .p_item .top .timeline{
+    position: absolute;
+    width: 160px;
+    height: 40px;
+    top: 10px;
+    border-radius: 0 30px 30px 0;
+    left: -30px;
+    background-image: -webkit-linear-gradient(52deg, #21a0f5, #45F9AE);
+    background-image: -o-linear-gradient(52deg, #21a0f5, #45F9AE);
+    background-image: linear-gradient(142deg, #21a0f5, #45F9AE);
+    box-shadow: 1px 2px 5px rgba(22, 136, 211, 0.65);
+    /* background-color:  #2F87F1;*/
+}
+.photoWall .h_inner .p_item .top .timeline::before{
+    content:"";
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius:50%;
+    position:absolute;
+    top: 10px;
+    left: 0;
+}
+.photoWall .h_inner .p_item .top .times{
+    position:absolute;
+    top: 18px;
+    left: 16px;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 400;
+}
+.photoWall .h_inner .p_item .top h3{
+    float:left;
+    font-size: 24px;
+    margin-left:150px;
+    line-height: 60px;
+}
+
+.p_pic{
+    margin-top:20px;
+}
+.p_pic ul{
+    overflow: hidden;
+}
+.p_pic ul li{
+    float:left;
+    width: 235px;
+    height: 140px;
+    margin: 8px 5px;
+    box-shadow: 0 1px 3px 0 rgba(0,37,55,.05);
+    cursor: pointer;
+    overflow:hidden;
+}
+
+.p_pic ul li img{
+    width: 100%;
+    height: 100%;
+    transition: all 0.6s ease 0s;
+}
+
+ .p_pic ul li img:hover{
+    transform:scale(1.2);
+}
+.pic_mask{
+    width: 100%;
+    height: 100%;
+    position:absolute;
+    top: 0;
+    left: 0;
+    z-index:999;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+.pic_mask img{
+    width:50%;
+    height: 400px;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.pic_mask span{
+    display: block;
+    width: 200px;
+    height: 200px;
+    position:fixed;
+    top: 50%;
+    margin-top: -100px;
+    cursor:pointer;
+    background: url('images/jiantou.png') no-repeat center center;
+    background-size: 40px;
+}
+.pic_mask span.btnLeft{
+    left: 0;
+    transform: rotate(180deg);
+}
+
+.pic_mask span.btnRight{
+    right: 0;
+}
+.pic_mask .number{
+    width: 200px;
+    position:fixed;
+    bottom: 8%;
+    left: 50%;
+    transform: translate(-50%,0);
+}
+.pic_mask .number p{
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    font-weight: normal;
+}
+.pic_mask .p_close{
+    position:fixed;
+    top: 10%;
+    right: 9%;
+    font-size: 30px;
+    font-style: normal;
+    color:#fff;
+    border-radius: 50%;
+    cursor:pointer;
+}

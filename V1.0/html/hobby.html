@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta id="viewport" name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,minimal-ui">
+    <title>photoWall</title>
+    <link rel="stylesheet" type="text/css" href="../css/hobby.css">
+</head>
+<body>
+   <!--  <div class="pic_mask">
+        <span class="btnRight" id="btnRight"></span>
+        <span class="btnLeft" id="btnLeft"></span>
+        <div class="number">
+            <p>1&nbsp; / &nbsp;11</p>
+        </div>
+        <i class="p_close" id="p_close">×</i>
+    </div> -->
+    <div class="photoWall">
+        <div class="p_banner">
+            <img src="images/p_banner.png" alt="">
+            <div class="p_mark"></div>
+            <div class="p_title">
+                <p>用沿途风景记录你最放肆开心的一刻！</p>
+                <p class="last">给自己的回忆添一抹色彩</p>
+            </div>
+        </div>
+
+        <div class="h_inner">
+            <div class="line"> </div>
+        </div>
+    </div>
+
+    <script type="text/template" id="b_template">
+        <div class="p_item">
+            <div class="top">
+                <span class="timeline"></span>
+                <span class="times"><%= times %></span>
+                <h3><%= title %></h3>
+            </div>
+            <div class="p_pic lazy">
+                <ul class="oUl">
+                </ul>
+            </div>
+        </div>
+    </script>
+    <script type="text/template" id="p_template">
+        <li><img class="lazy" data-src="<%= url %>" alt=""></li>
+    </script>
+</body>
+</html>
+
+<script type="text/javascript" src="../js/lib/jquery-1.12.3.min.js"></script>
+<script type="text/javascript" src="../js/lib/underscore-min.js"></script>
+<script type="text/javascript">
+  //拿到模板字符串
+  var b_template_str = $("#b_template").html();
+  var p_template_str = $("#p_template").html();
+
+  //模板编译
+  var b_compiled = _.template(b_template_str);
+  var p_compiled = _.template(p_template_str);
+
+  //发出ajax请求
+  $.get("./api/photo.txt",function(data){
+      var dataobj = typeof data == "object" ? data : eval("(" + data + ")");
+      var list = dataobj.photo;
+      //遍历list数组，让list中的每一项注入到函数中成为实参
+      _.each(list,function(dictionary){
+          var b_str = b_compiled(dictionary);
+          //转为DOM上树
+          var $dom = $(b_str);
+          $dom.appendTo('.h_inner');
+
+          for(var i = 0 ; i < dictionary.pic.length ; i++){
+
+              var aLis = p_compiled(dictionary.pic[i]);
+              $dom.find(".p_pic .oUl").append($(aLis));
+          };
+
+      });
+
+
+  });
+
+  lazyload();
+  $(window).scroll(lazyload);
+  function lazyload(){
+     var A = $(window).scrollTop();
+     var B = $(window).height();
+     $("div .lazy").each(function(){
+         var C = $(this).offset().top;
+         if (A + B > C - 100) {
+             //备份Dom
+             var $ulDom = $($(this).html());
+             //清空
+             $(this).empty();
+             //放置loading图
+             $(this).append('<img class="loading" src="images/loading.gif">');
+             //备份this
+             var $self = $(this);
+             //图片总数
+             var amount = $ulDom.find('img.lazy').length;
+             //累加器
+             var count = 0;
+             //在自己备份的DOM中寻找img标签发出请求
+             $ulDom.find('img.lazy').each(function(){
+                 $(this).attr("src",$(this).attr("data-src"));
+                 $(this).removeClass('lazy');
+                 $(this).load(function(){
+                     count ++;
+                     if (count == amount) {
+                         $self.empty().append($ulDom);
+                         $self.removeClass('lazy');
+                     };
+                 })
+             })
+         };
+     })
+  }
+
+
+
+  // //点击委托事件
+  // $(".p_item .p_pic ul").delegate('li', 'click', function(event) {
+  //     var idx = $(this).index();
+  //     $("<img src='images/gjc/"+ idx +".png'>").appendTo('.pic_mask');
+
+  //     $(".pic_mask").css("display","block");
+  //     $("body").css({
+  //         "width" : "100%",
+  //         "overflow" : "hidden"
+  //     });
+  //     $("#btnLeft").click(function(){
+  //         idx++;
+  //         console.log("w");
+  //     });
+  //     $("#btnRight").click(function(){
+  //         idx--;
+  //         console.log("w");
+  //     });
+  // });
+
+    // //关闭按钮
+    // $("#p_close").click(function(){
+    //     $(".pic_mask").css("display","none");
+    //     $("body").css({
+    //         "width" : "100%",
+    //         "overflow" : "inherit"
+    //     })
+    // });
+
+
+
+
+
+
+
+</script>
