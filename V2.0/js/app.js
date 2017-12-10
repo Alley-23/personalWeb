@@ -391,9 +391,8 @@ Handlebars.registerHelper('compare', function(left, operator, right, options) {
 //将数据传入模板
 $('#content').html(contentTemplate(data));
 
-// //请求接口文件
+//请求接口文件
 // $.get("api/dataList.json", function(data){
-//     console.log(data.result)
 //     //将数据传入模板
 //     $('#content').html(contentTemplate(data.result));
 // });

@@ -32,7 +32,7 @@
     <!-- 模板 -->
     <script id="content-template" type="text/x-handlebars-template">
         {{#each this}}
-        <div class="list">
+        <div class="list" data-num = {{@index}}>
             <h3 class="title">{{this.title}}</h3>
             <div class="desc">
                 <span class="author">{{this.author}}</span>
